@@ -6,7 +6,7 @@
 extern double ave_online(double val,double ave);
 extern double var_online(double val,double ave,double square_ave);
 
-double N;
+int N;
 
 int main(void)
 {
@@ -19,8 +19,8 @@ int main(void)
     double square_ave=0;
     double u;
     double val2=0;
-    double avee=0;
-    double square_avee;
+    double ave_var=0;
+    double square_ave_var;
 
     printf("input the filename of sample:");
     fgets(fname,sizeof(fname),stdin);
@@ -41,20 +41,20 @@ int main(void)
 
         N=N+1;
 
-        avee=ave;
+        ave_var=ave;
         
         ave=ave_online(val,ave);
-        square_avee=square_ave;
+        square_ave_var=square_ave;
 
         val2=val*val;
 
         square_ave=ave_online(val2,square_ave);
 
-        var=var_online(val,avee,square_avee);
+        var=var_online(val,ave_var,square_ave_var);
 
     }
 
-    u=N/(N-1)*var;
+    u=(N*var)/(N-1);
 
     printf("ave=%lf\n",ave);
     printf("var=%lf\n",var);
@@ -77,7 +77,7 @@ double ave_online(double val,double ave)
 {
     double ave2;
 
-    ave2=(N-1)/N*ave+1/N*val;
+    ave2=((N-1)*ave+1*val)/N;
 
     return ave2;
 
@@ -87,7 +87,7 @@ double var_online(double val,double ave,double square_ave)
 {
     double var;
 
-    var=((N-1)/N*square_ave)+(1/N*val*val)-(((N-1)/N*ave)+(1/N*val))*(((N-1)/N*ave)+(1/N*val));
+    var=(((N-1)*square_ave+val*val)/N)-(((N-1)*ave+val)/N)*(((N-1)*ave+val)/N);
 
     return var;
 
