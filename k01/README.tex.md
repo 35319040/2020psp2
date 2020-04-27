@@ -38,6 +38,17 @@ N-1までの平均や二乗の平均をavee,square_aveeに格納した。
 標本男性の平均と分散から推定値をそれぞれ求めた。
 平均の推定値は標本と同じで、分散の推定値は(N-1)で割ったものとなる。
 
+## 入出力結果
+
+```
+input the filename of sample:../sample/heights_male.csv
+the filename of sample: ../sample/heights_male.csv
+sample mean：
+sample variance：
+population mean (estimated)：
+population variance (estimated)：
+```
+
 ## 修正履歴
 
 説明は「かきくけこ」だ！

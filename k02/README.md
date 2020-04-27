@@ -23,5 +23,12 @@ bb35319040 藤井英梨花
 mxa_val,min_valをそれぞれ定義した。
 
 
+## 入出力結果
+
+```
+Likelihood for A：
+Likelihood for B：
+```
+
 ## 修正履歴
 
