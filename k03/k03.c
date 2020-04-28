@@ -14,15 +14,15 @@ extern double r_stdnorm(void);
 
 int main(int argc, char* argv[])
 {
-    int num_dummy;
-    double mu;
-    double sigma;
-    int i;
+    int num_dummy=0;
+    double mu=0;
+    double sigma=0;
     double dummy;
+    int i;
 
-
-
-
+   sscanf(argv[1],"%lf",&mu);
+   sscanf(argv[2],"%lf",&sigma);
+   sscanf(argv[3],"%d",&num_dummy);
 
     printf("============================================\n");
     printf("template mean: %4.1lf\n",mu);
@@ -31,9 +31,9 @@ int main(int argc, char* argv[])
     printf("============================================\n");
 
     srand(RAND_SEED);
-    for(  ){
+    for(i=0;i<num_dummy;i++){
         /* r_stdnormを使って，1人のデータを捏造 */
-        dummy =   ;
+        dummy = mu + r_stdnorm()*sigma;
         printf("%5.2lf\n",dummy);
     }
 
@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
 
 double r_unif(void)
 {
-    return (double)(rand()+1)/(RAND_MAX+2);
+    return (double)(rand())/(double)(RAND_MAX);
 }
 
 double r_stdnorm(void)
