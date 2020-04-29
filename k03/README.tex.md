@@ -93,3 +93,5 @@ Num of dummy data: 5
 
 ## 修正履歴
 
+[comment #20200428]
+- コンパイル時に`-DCONST_SEED`を付けない場合の入出力結果をコピペしてください．
