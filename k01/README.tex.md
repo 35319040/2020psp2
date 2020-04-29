@@ -48,6 +48,12 @@ sample variance：
 population mean (estimated)：
 population variance (estimated)：
 ```
+input the filename of sample:../sample/heights_male.csv
+the filename of sample: ../sample/heights_male.csv
+ave=173.888750
+var=25.361711
+expected ave=173.888750
+expected var=28.984812
 
 ## 修正履歴
 

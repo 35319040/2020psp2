@@ -33,6 +33,10 @@ $$
 Likelihood for A：
 Likelihood for B：
 ```
+input the filename of sample:../sample/heights_male.csv
+the filename of sample: ../sample/heights_male.csv
+L_A: 0.000006
+L_B: 0.000002
 
 ## 修正履歴
 
