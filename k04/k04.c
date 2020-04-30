@@ -3,31 +3,93 @@
 #include <string.h>
 #include <math.h>
 
-extern void get_bound(int num_male, int num_whole, double* lower_bound, double* upper_bound);
-extern int choose(int n, int r);
 
 int main(void)
 {
+    struct DATE
+    {                  /* 構造体定義 */
+    int id;
+    double height;
+    int gender;
+    };
+
+    struct DATE person[13];           /* データ入れる用 配列 */
+
     double val;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
-    int num_male, num_female, num_unknown, num_whole;
-    int gender;
-    double lower_bound,upper_bound;
+    int input_id;
+    int i;
+    int x=-1;
 
-    printf("input the filename of sample:");
-    fgets(fname,sizeof(fname),stdin);
+
+    printf("input the filename of sample height:"); 
+    fgets(fname,sizeof(fname),stdin);           
     fname[strlen(fname)-1] = '\0';
-    printf("the filename of sample: %s\n",fname);
-
-    fp = fopen(fname,"r");
-    if(fp==NULL){
+    fp = fopen(fname,"r");                     /* ファイル開いた */
+    if(fp==NULL)
+    {
         fputs("File open error\n",stderr);
         exit(EXIT_FAILURE);
     }
 
-    num_male=num_female=num_unknown=0;
+    fgets(buf,sizeof(buf),fp)!=NULL;              /* 一行分空読み */
+
+    while(fgets(buf,sizeof(buf),fp)!=NULL) /* 初期化 */
+    {   
+        i=0;
+        i=i+1;
+        sscanf(buf,"%d, %lf",&person[i].gender, &person[i].height);
+        
+    }
+
+
+    printf("input the filename of sample ID:");   /* ファイル開いた */
+    fgets(fname,sizeof(fname),stdin);
+    fname[strlen(fname)-1]='\0';
+    fp = fopen(fname,"r");
+    if(fp==NULL)
+    {
+        fputs("File open error\n",stderr);
+        exit(EXIT_FAILURE);
+    }
+    while(fgets(buf,sizeof(buf),fp)!=NULL)  /* 初期化 */
+    {    
+        i=0;
+        i=i+1;
+        sscanf(buf,"%d",&person[i].id);
+    }
+    
+   
+    
+
+    printf("------------------");
+    printf("Which ID's data do you want?:");
+    scanf("%d",&input_id);
+    
+    for(i=0;i<14;i++)            /* ループで特定のid要素があるか確認 */
+    {
+        
+        if(person[i].id==input_id)
+            {
+               x=i;
+            }
+                
+    }
+
+
+
+    printf("ID=%d\n",person[x].id);
+    printf("gender=%s\n",person[x].gender==1?"MALE":"FEMALE");    /* 三項演算子 */
+    printf("height=%.3lf\n",person[x].height);
+    printf("No date");
+
+    return 0;
+
+}
+
+    /*  num_person=0;
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%d,%lf",&gender, &val);
         if(gender==1){ num_male++;
@@ -37,12 +99,7 @@ int main(void)
     }
     num_whole = num_male+num_female+num_unknown;
 
-    printf("================================\n");
-    printf("Number of male sample : %d\n",num_male);
-    printf("Number of female sample : %d\n",num_female);
-    printf("Male Ratio : %lf\n",(double)num_male/num_whole);
-
-    if(fclose(fp) == EOF){
+   if(fclose(fp) == EOF){
         fputs("file close error\n",stderr);
         exit(EXIT_FAILURE);
     }
@@ -55,6 +112,7 @@ int main(void)
     return 0;
 
 }
+
 
 void get_bound(int num_male, int num_whole, double* lower_bound, double* upper_bound)
 {
@@ -89,3 +147,4 @@ int choose(int n, int r)
     for(i=r;i>0;i--) bunshi *= i;
     return bunbo/bunshi;
 }
+  */
