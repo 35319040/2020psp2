@@ -43,17 +43,11 @@ N-1までの平均や二乗の平均をavee,square_aveeに格納した。
 ```
 input the filename of sample:../sample/heights_male.csv
 the filename of sample: ../sample/heights_male.csv
-sample mean：
-sample variance：
-population mean (estimated)：
-population variance (estimated)：
-```
-input the filename of sample:../sample/heights_male.csv
-the filename of sample: ../sample/heights_male.csv
 ave=173.888750
 var=25.361711
 expected ave=173.888750
 expected var=28.984812
+```
 
 ## 修正履歴
 
@@ -63,3 +57,8 @@ expected var=28.984812
 
 [comment #20200428]
 - 追加ですが，入出力結果をコピペする項をReadme.mdに加えました．実際に動かしたときの入出力の様子をコピペして載せてください．
+
+
+[comment #20200430]
+- 本質ではないですが，入出力結果を「出力のまま」Markdown表示するには，バッククォート「`」を3回打った行で囲みます．
+- 課題１完了
