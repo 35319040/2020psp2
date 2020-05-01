@@ -2,18 +2,19 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#define N 14
 
-
-int main(void)
-{
-    struct DATE
+struct DATA
     {                  /* 構造体定義 */
     int id;
     double height;
     int gender;
     };
 
-    struct DATE person[13];           /* データ入れる用 配列 */
+int main(void)
+{
+    
+    struct DATA person[N];           /* データ入れる用 配列 */
 
     double val;
     char fname[FILENAME_MAX];
@@ -22,7 +23,6 @@ int main(void)
     int input_id;
     int i;
     int x=-1;
-
 
     printf("input the filename of sample height:"); 
     fgets(fname,sizeof(fname),stdin);           
@@ -34,14 +34,19 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
-    fgets(buf,sizeof(buf),fp)!=NULL;              /* 一行分空読み */
+    fgets(buf,sizeof(buf),fp)!=NULL;   /* 一行分空読み */
+
+    i=0;
 
     while(fgets(buf,sizeof(buf),fp)!=NULL) /* 初期化 */
     {   
-        i=0;
+        sscanf(buf,"%d, %lf",&person[i].gender, &person[i].height);  
         i=i+1;
-        sscanf(buf,"%d, %lf",&person[i].gender, &person[i].height);
-        
+    }
+
+   if(fclose(fp) == EOF){
+        fputs("file close error\n",stderr);
+        exit(EXIT_FAILURE);
     }
 
 
@@ -54,38 +59,53 @@ int main(void)
         fputs("File open error\n",stderr);
         exit(EXIT_FAILURE);
     }
+
+    i=0;
+
     while(fgets(buf,sizeof(buf),fp)!=NULL)  /* 初期化 */
     {    
-        i=0;
-        i=i+1;
         sscanf(buf,"%d",&person[i].id);
+        i=i+1;
     }
     
-   
+   if(fclose(fp) == EOF){
+        fputs("file close error\n",stderr);
+        exit(EXIT_FAILURE);
+    }
     
 
     printf("------------------");
     printf("Which ID's data do you want?:");
     scanf("%d",&input_id);
+
     
     for(i=0;i<14;i++)            /* ループで特定のid要素があるか確認 */
     {
         
         if(person[i].id==input_id)
             {
-               x=i;
+                x=i;
+            }
+        else
+            {
+                x=x;
             }
                 
     }
 
 
+    if(x==-1)
+    {
+        printf("No data");
+    }
+    else
+    {
+        printf("ID=%d\n",person[x].id);
+        printf("gender=%s\n",person[x].gender==1?"MALE":"FEMALE");    /* 三項演算子 */
+        printf("height=%.2lf\n",person[x].height);   
+    }
 
-    printf("ID=%d\n",person[x].id);
-    printf("gender=%s\n",person[x].gender==1?"MALE":"FEMALE");    /* 三項演算子 */
-    printf("height=%.3lf\n",person[x].height);
-    printf("No date");
-
-    return 0;
+    return 0; 
 
 }
 
