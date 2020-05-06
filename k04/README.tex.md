@@ -18,31 +18,19 @@ heights IDsのファイルをそれぞれ開き、準備した構造体の配列
 あれば、入力した学籍番号に対応する各々を、なければ、no dateと出力されるように実装した。
 また、heights.csvにはgender,heights(cm)という文があり、IDs.csvと対応しなくなるので、一行分空読みをした。
 
-
-最後にprintfしたときにうまく読み取れない原因がわかりません。
-no dateをどうやって表示するようにするのかもわからないです。
-ヒントお願いします。
-
 ## 入出力結果
 
 例えば，ID 45313125のデータを調べたいとき，
 
 ```
-Input the filename of sample height : ../sample/heights.csv
-Input the filename of sample ID : ../sample/IDs.csv
-Which ID's data do you want? : 45313125
----
-ID : 45313125
-gender : Male
-height : 167.83
-```
 input the filename of sample height:../sample/heights.csv
 input the filename of sample ID:../sample/IDs.csv
-------------------Which ID's data do you want?:45313125
+------------------
+Which ID's data do you want?:45313125
 ID=45313125
 gender=FEMALE
 height=152.40
-
+```
 
 例えば，ID 45313124のデータを調べたいとき，
 
@@ -53,11 +41,9 @@ Which ID's data do you want? : 45313124
 ---
 No data
 ```
-input the filename of sample height:../sample/heights.csv
-input the filename of sample ID:../sample/IDs.csv
-------------------Which ID's data do you want?:45313124
-No data
 
 
 ## 修正履歴
 
+[comment #20200506]
+- OKです．
