@@ -30,15 +30,16 @@ $$
 ## 入出力結果
 
 ```
-Likelihood for A：
-Likelihood for B：
-```
 input the filename of sample:../sample/heights_male.csv
 the filename of sample: ../sample/heights_male.csv
 L_A: 0.000006
 L_B: 0.000002
+```
 
 ## 修正履歴
 
 [comment #20200428]
 - 入出力結果をレポートに載せることにしました．実際に動かした際の入出力の様子をコピペしてください．
+
+[comment #20200506]
+- OKです．
